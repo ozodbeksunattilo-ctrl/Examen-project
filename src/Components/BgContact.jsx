@@ -4,6 +4,7 @@ import Bg6 from "../assets/Bg6.png";
 function BgContact() {
   return (
     <div>
+
       <div
         className=" bg-cover bg-top h-screen flex justify-center mt-[100px]"
         style={{ backgroundImage: `url(${Bg5})` }}
@@ -71,8 +72,11 @@ function BgContact() {
           </div>
         </div>
       </div>
+
+     
     </div>
   );
 }
+
 
 export default BgContact;
