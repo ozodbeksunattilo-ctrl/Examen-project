@@ -3,8 +3,6 @@ import BgContact from '../Components/BgContact'
 import Images from "../assets/images.png"
 import Images2 from "../assets/images2.png"
 import Images3 from "../assets/images3.png"
-import Bg5 from "../assets/Bg5.png"
-import Bg6 from "../assets/Bg6.png"
 function Card(props) {
   return (
     <div className="flex flex-col items-start text-left">
