@@ -29,7 +29,7 @@ function BgContact() {
                 name=""
                 id=""
               >
-                <option value="uz">Uz</option>
+                <option value="uz">Uzb</option>
                 <option value="rus">Rus</option>
               </select>
 
