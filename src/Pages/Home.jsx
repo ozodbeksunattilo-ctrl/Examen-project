@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,21 +21,18 @@ import Mask3 from "../assets/Mask3.png";
 import Mask4 from "../assets/Mask4.png";
 import Mask5 from "../assets/Mask5.png";
 import Mask6 from "../assets/Mask6.png";
-import Bg3 from "../assets/Bg3.png"
-function Card({img,name,text,width}) {
-  return(
-
-  
-  <div className="flex flex-col items-start gap-[10px]">
-                    <img src={img} alt="" />
-                    <h1 className="font-bold text-[18px] w-[250px]">{name}</h1>
-                    <p className={`text-["15px"] ${width}` }>
-                   {text}
-                    </p>
-                  </div>
-  )
+import Bg3 from "../assets/Bg3.png";
+function Card({ img, name, text, width }) {
+  return (
+    <div className="flex flex-col items-start gap-[10px]">
+      <img src={img} alt="" />
+      <h1 className="font-bold text-[18px] w-[250px]">{name}</h1>
+      <p className={`text-["15px"] ${width}`}>{text}</p>
+    </div>
+  );
 }
 function Home() {
+  const [play,setPlay] = useState(false)
   return (
     <div>
       <div className="relative ">
@@ -44,8 +42,12 @@ function Home() {
           muted
           playsInline
           src="/Video.mp4"
+          onPlay={()=> setPlay(true)}
+          onPause={()=> setPlay(false)}
+          onEnded={()=> setPlay(false) }
         ></video>
-        <div className="absolute top-[600px] left-[640px]">
+        {!play &&(
+<div  className="absolute top-[600px] left-[640px]">
           <div className="absolute top-[-100px] left-[280px] text-[white] text-[80px]">
             <FaRegCirclePlay />
           </div>
@@ -54,6 +56,7 @@ function Home() {
             TRUE FITNESS - ПРЕМИУМ ТРЕНАЖЕРЫ ИЗ США
           </h1>
         </div>
+        )}
         <div className="bg-[#01AEE7] backdrop-filter: blur(220px) py-[104px] px-[274px] flex flex-col">
           <p className="w-[237px] h-[2px] bg-[yellow] text-center] mx-auto"></p>
           <div className="flex items-center justify-center">
@@ -73,7 +76,7 @@ function Home() {
             <p className="w-[237px] h-[5px] bg-yellow-400 mt-[40px]"></p>
 
             <p className="text-[30px] w-[350px] py-[24px] font-bold">
-              Современное и надежное оборудование для фитнес-клубов
+              Современное и надежное оборудование для фитнес-клубо
             </p>
 
             <div className="flex items-center gap-[20px]">
@@ -180,53 +183,106 @@ function Home() {
                   Мы предлагаем полный комплекс услуг
                 </h1>
                 <div className="mt-[128px] flex  gap-[220px] ">
-                 <Card img={Mask} name="КОНСАЛТИНГ" width="w-[200px]" text="Помогаем в разработке концепции клуба, зонировании, оснащении и расчете финансовых показателей."/>
-                 <Card img={Mask2} width="w-[250px]" name="МОНТАЖ И СЕРВИСНОЕ ОБСЛУЖИВАНИЕ"   text="Полный цикл пуско-наладочных работ, а также сервисного обслуживания тренажеров. "/>
-
-                    
+                  <Card
+                    img={Mask}
+                    name="КОНСАЛТИНГ"
+                    width="w-[200px]"
+                    text="Помогаем в разработке концепции клуба, зонировании, оснащении и расчете финансовых показателей."
+                  />
+                  <Card
+                    img={Mask2}
+                    width="w-[250px]"
+                    name="МОНТАЖ И СЕРВИСНОЕ ОБСЛУЖИВАНИЕ"
+                    text="Полный цикл пуско-наладочных работ, а также сервисного обслуживания тренажеров. "
+                  />
                 </div>
-                  <div className="mt-[90px] flex  gap-[220px] ">
-                 <Card img={Mask3}   name="ПОДБОР ОБОРУДОВАНИЯ И 3D ПРОЕКТ" width="w-[250px]" width="w-[250px]" text="Помогаем подобрать оборудование, сделать расстановку на плане и показать 3D визуализацию вашего будущего проекта."/>
-                 <Card img={Mask4} width="w-[180px]" name="ФИРМЕННЫЙ SHOW-ROOM" text="Пройдите тест-драйв оборудования перед приобретением."/>
-
-                    
+                <div className="mt-[90px] flex  gap-[220px] ">
+                  <Card
+                    img={Mask3}
+                    name="ПОДБОР ОБОРУДОВАНИЯ И 3D ПРОЕКТ"
+                    width="w-[250px]"
+                    width="w-[250px]"
+                    text="Помогаем подобрать оборудование, сделать расстановку на плане и показать 3D визуализацию вашего будущего проекта."
+                  />
+                  <Card
+                    img={Mask4}
+                    width="w-[180px]"
+                    name="ФИРМЕННЫЙ SHOW-ROOM"
+                    text="Пройдите тест-драйв оборудования перед приобретением."
+                  />
                 </div>
-                  <div className="mt-[90px] flex  gap-[220px] ">
-                 <Card img={Mask5} name="ПОСТАВКА ЗАПЧАСТЕЙ" width="w-[250px]" text="Поставка как гарантийных, так и постгарантийных запчастей."/>
-                 <Card img={Mask6} width="w-[250px]" name="Доставка по всему Узбекистану" text="Мы доставляем оборудование по всему Узбекистану."/>
-
-                    
+                <div className="mt-[90px] flex  gap-[220px] ">
+                  <Card
+                    img={Mask5}
+                    name="ПОСТАВКА ЗАПЧАСТЕЙ"
+                    width="w-[250px]"
+                    text="Поставка как гарантийных, так и постгарантийных запчастей."
+                  />
+                  <Card
+                    img={Mask6}
+                    width="w-[250px]"
+                    name="Доставка по всему Узбекистану"
+                    text="Мы доставляем оборудование по всему Узбекистану."
+                  />
                 </div>
-              
-                   
-                
               </div>
               <img src={Run} alt="" />
             </div>
           </div>
-         
         </div>
-         <div className="bg-cover bg-center  h-[100vh]" style={{backgroundImage:`url(${Bg3})`}}>
-            <div className="max-w-[1300px] mx-auto py-[150px] px-[470px] relative">
-              <div className="bg-[white] flex flex-col items-start  gap-[30px] w-[505px] " >
-                <h1 className="font-bold text-[20px] w-[370px] mt-[50px] px-[28px]">Получите эксклюзивное предложение на тренажеры TRUE FITNESS</h1>
-                <p className="text-[13px] font-extralight w-[300px] px-[28px]">Мы будем рады проконсультировать Вас и помочь с подбором оборудования</p>
-           
-                <div className="flex flex-col items-center gap-[22px] ]">
-                   <input className="  w-[450px] ml-[28px] py-[10px] px-[20px] font-bold text-[18px] bg-[#F0F0F0]" placeholder="имя" type="text" />
-                <input className=" w-[450px] ml-[28px] py-[10px] px-[20px] font-bold text-[18px] bg-[#F0F0F0]" placeholder="EMail" type="email" />
-                <input className=" w-[450px] ml-[30px] py-[10px] px-[60px] font-bold text-[18px] bg-[#F0F0F0]" placeholder="+998"  type="number" />
-                </div>
-                <select className="absolute top-[540px] left-[510px]" name="" id="">
-                  <option value="uz">Uz</option>
-                  <option value="rus">Rus</option>
-                </select>
-          
-                <button type="submit" className="py-[12px] px-[180px] bg-[#01AEE7] ml-[28px] text-[white] hover:bg-[blue] active:bg-[black] font-bold">ОТПРАВИТЬ</button>
-                <p className="text-[13px] text-[whiet] py-[22px] w-[400px] ml-[28px]">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c политикой конфиденциальности</p>
+        <div
+          className="bg-cover bg-center  h-[100vh]"
+          style={{ backgroundImage: `url(${Bg3})` }}
+        >
+          <div className="max-w-[1300px] mx-auto py-[150px] px-[470px] relative">
+            <div className="bg-[white] flex flex-col items-start  gap-[30px] w-[505px] ">
+              <h1 className="font-bold text-[20px] w-[370px] mt-[50px] px-[28px]">
+                Получите эксклюзивное предложение на тренажеры TRUE FITNESS
+              </h1>
+              <p className="text-[13px] font-extralight w-[300px] px-[28px]">
+                Мы будем рады проконсультировать Вас и помочь с подбором
+                оборудования
+              </p>
+
+              <div className="flex flex-col items-center gap-[22px] ]">
+                <input
+                  className="  w-[450px] ml-[28px] py-[10px] px-[20px] font-bold text-[18px] bg-[#F0F0F0]"
+                  placeholder="имя"
+                  type="text"
+                />
+                <input
+                  className=" w-[450px] ml-[28px] py-[10px] px-[20px] font-bold text-[18px] bg-[#F0F0F0]"
+                  placeholder="EMail"
+                  type="email"
+                />
+                <input
+                  className=" w-[450px] ml-[30px] py-[10px] px-[60px] font-bold text-[18px] bg-[#F0F0F0]"
+                  placeholder="+998"
+                  type="number"
+                />
               </div>
+              <select
+                className="absolute top-[540px] left-[510px]"
+                name=""
+                id=""
+              >
+                <option value="uz">Uz</option>
+                <option value="rus">Rus</option>
+              </select>
+
+              <button
+                type="submit"
+                className="py-[12px] px-[180px] bg-[#01AEE7] ml-[28px] text-[white] hover:bg-[blue] active:bg-[black] font-bold"
+              >
+                ОТПРАВИТЬ
+              </button>
+              <p className="text-[13px] text-[whiet] py-[22px] w-[400px] ml-[28px]">
+                Нажимая на кнопку, вы даете согласие на обработку персональных
+                данных и соглашаетесь c политикой конфиденциальности
+              </p>
             </div>
           </div>
+        </div>
       </div>
     </div>
   );
