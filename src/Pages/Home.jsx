@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Swipper from "../assets/swipper.png";
-import Swipper1 from "../assets/swipper1.png";
+import Swipper1 from "../assets/Swipper1.png";
 import Swipper2 from "../assets/swipper2.png";
 import Swipper3 from "../assets/Swipper3.png";
 import Swipper4 from "../assets/swipper4.png";
