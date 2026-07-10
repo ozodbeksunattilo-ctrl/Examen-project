@@ -3,6 +3,11 @@ import BgContact from '../Components/BgContact'
 import Images from "../assets/images.png"
 import Images2 from "../assets/images2.png"
 import Images3 from "../assets/images3.png"
+import Rectangle from "../assets/Rectangle.png"
+import Rectangle1 from "../assets/Rectangle1.png"
+import Rectangle2 from "../assets/Rectangle2.png"
+import Rectangle3 from "../assets/Rectangle3.png"
+import Rectangle4 from "../assets/Rectangle4.png"
 function Card(props) {
   return (
     <div className="flex flex-col items-start text-left">
@@ -40,27 +45,27 @@ function Axror() {
 
       <div className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
         <Card
-          img="Rectangle 57 (1).png"
+          img={Rectangle1}
           title="Лучшие характеристики в классе"
           text="Наши тренажеры оснащены самой передовой технологией, обеспечивающей максимальную эффективность тренировок."
         />
         <Card
-          img="Rectangle 57.png"
+          img={Rectangle}
           title="Высокая надёжность оборудования"
           text="Каждый тренажёр проходит строгий контроль качества перед выпуском на рынок."
         />
         <Card
-          img="Rectangle 57 (2).png"
+          img={Rectangle2}
           title="Низкая стоимость владения"
           text="Долговечность и минимальные затраты на обслуживание делают наше оборудование выгодным."
         />
         <Card
-          img="Rectangle 57 (3).png"
+          img={Rectangle3}
           title="Качественный и оперативный сервис"
           text="Наша сервисная служба всегда готова оказать оперативную поддержку клиентам."
         />
         <Card
-          img="Rectangle 57 (4).png"
+          img={Rectangle4}
           title="Цены ниже, чем у аналогов"
           text="Мы предлагаем конкурентные цены без потери качества продукции."
         />
